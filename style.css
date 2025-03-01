@@ -1,0 +1,692 @@
+/* Estilos Globais */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex; 
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  background: linear-gradient(to right, #54C87D, #54C87D, #54C87D, #004080, #000);
+  padding: 20px 0;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  max-width: 240px;
+  max-height: 120px;
+  margin-left: -30px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  border-radius: 30px;
+  padding-right: 40px;
+  position: relative;
+  background-color: #fff; 
+  border: none; 
+  width: 100%; /* Define a largura como 100% */
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000;
+  cursor: pointer;
+}
+
+/* Banner */
+.banner {
+  background-image: url('img/banner.jpeg');
+  background-size: cover;
+  background-position: center;
+  min-height: 500px; /* Altura mínima ajustada para telas menores */
+  display: flex;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+.banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.banner-text {
+  position: absolute;
+  bottom: -10px;
+  left: 15px;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.banner-text p {
+  color: #fff;
+  font-size: 1.1em;
+}
+
+/* Banner Buttons */
+.banner-buttons {
+  padding: 40px 0; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; 
+  background-color: #000;
+}
+
+.banner-buttons .btn {
+  flex: 1 0 250px; 
+  text-align: center;
+  background-color: #54C87D; 
+  color: #fff; 
+  border: none; 
+  transition: all 0.3s ease; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.banner-buttons .btn:hover {
+  background-color: #004080; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+  color: #fff; 
+}
+
+/* Seção de Recursos */
+.section-features {
+  background-color: #000; /* Cor de fundo da seção */
+  padding: 0; /* Remove o padding da seção */
+  background-image: url('img/features.png'); /* Define a imagem como background */
+  background-size: cover; /* Define a largura como 100% e a altura se ajusta automaticamente */
+  background-repeat: no-repeat; /* Impede que a imagem se repita */
+  background-position: center; /* Centraliza a imagem */
+  min-height: 300px; /* Define a altura mínima da seção como 100% da altura da viewport */
+  display: flex; /* Opcional, se você quiser conteúdo alinhado na seção */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+}
+
+.feature-item {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco translúcido */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  margin-bottom: 20px;
+  transition: all 0.3s ease; 
+}
+
+.feature-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.feature-description {
+  font-size: 1em;
+}
+
+/* Seção de Inscrição */
+.section-inscricao {
+  background-color: #000;
+  color: #fff;
+  padding: 50px 0; /* Padding reduzido para telas menores */
+  text-align: center;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-inscricao h2 {
+  font-size: 2em; /* Tamanho da fonte reduzido para telas menores */
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #fff; 
+}
+
+.section-inscricao p {
+  font-size: 1em; /* Tamanho da fonte reduzido para telas menores */
+  margin-bottom: 30px;
+  color: #fff; 
+}
+
+/* Seção do Mapa e Inscrição */
+.section-mapa-inscricao {
+  padding: 80px 0; /* Padding reduzido para telas menores */
+  background-image: url(img/section-mapa.png);
+  background-size: cover; /* Define a largura como 100% e a altura se ajusta automaticamente */
+  background-repeat: no-repeat; /* Impede que a imagem se repita */
+  background-position: center; /* Centraliza a imagem */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; 
+  position: relative; /* Adiciona para podermos posicionar o overlay */
+}
+
+.section-mapa-inscricao::before { /* Overlay */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo preto semi-transparente */
+  z-index: -1; /* Coloca por trás do conteúdo */
+}
+
+.inscricao,
+.mapa {
+  width: 100%;
+  text-align: center;
+  z-index: 1; /* Para garantir que o conteúdo fique por cima do overlay */
+}
+
+.inscricao-conteudo {
+  margin-bottom: 20px;
+}
+
+.inscricao-conteudo h2 {
+  font-size: 2.5em; /* Tamanho da fonte aumentado para maior destaque */
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #fff; /* Cor branca para contraste */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona sombra para realçar o texto */
+}
+
+.inscricao-conteudo p {
+  font-size: 1.2em; /* Tamanho da fonte aumentado */
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Adiciona sombra para realçar o texto */
+}
+
+.inscricao-formulario {
+  
+  padding: 20px;
+
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.inscricao-formulario .form-group {
+  position: relative; /* Para posicionar o label */
+  margin-bottom: 15px;
+}
+
+.inscricao-formulario input {
+  width: 100%;
+  padding: 12px; /* Aumenta o padding */
+  border: none;
+  border-radius: 5px; /* Arredonda as bordas */
+  background-color: #fff; /* Fundo branco */
+  color: #333;
+  border-bottom: 2px solid #ddd; /* Adiciona borda inferior */
+  transition: box-shadow 0.3s ease, border-bottom 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+  font-size: 1.1em; /* Aumenta o tamanho da fonte */
+  margin-top: 5px;
+}
+
+.inscricao-formulario input:focus {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao focar */
+  outline: none;
+  border-bottom: 2px solid #54C87D; /* Altera a cor da borda inferior ao focar */
+}
+
+.inscricao-formulario label {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  pointer-events: none; /* Faz com que o label não interfira com o input */
+  transition: top 0.3s ease, font-size 0.3s ease;
+  font-size: 0.9em; /* Tamanho da fonte do label */
+  color: #333; /* Cor do label */
+}
+
+.inscricao-formulario input:focus ~ label,
+.inscricao-formulario input:valid ~ label {
+  top: -8px; /* Move o label para cima ao focar ou validar */
+  font-size: 0.8em; /* Reduz o tamanho da fonte */
+}
+
+.inscricao-formulario button {
+  background-color: #54C87D; /* Cor do botão */
+  color: #fff;
+  padding: 15px 25px; /* Aumenta o padding */
+  border: none;
+  border-radius: 5px; /* Arredonda as bordas */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+  font-size: 1.1em; /* Aumenta o tamanho da fonte */
+  font-weight: bold;
+  width: 100%; /* Ocupa toda a largura */
+  margin-top: 15px;
+}
+
+.inscricao-formulario button:hover {
+  background-color: #004080; /* Cor do botão ao passar o mouse */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao passar o mouse */
+}
+
+.mapa {
+  width: 100%;
+}
+
+.mapa img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mapa h2 {
+  font-size: 1.8em; /* Tamanho da fonte reduzido para telas menores */
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #fff; /* Cor branca para contraste */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona sombra para realçar o texto */
+}
+
+/* Seção de Contato */
+.section-contato {
+  background-color: #000;
+  color: #fff;
+  padding: 50px 0; /* Padding reduzido para telas menores */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-contato h2 {
+  font-size: 2em; /* Tamanho da fonte reduzido para telas menores */
+  margin-bottom: 30px;
+  color: #fff;
+  text-align: center;
+}
+
+.section-contato form {
+  background: linear-gradient(to right, #004080, #000, #54C87D); 
+  max-width: 600px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 20px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #000;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+.section-contato label {
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.section-contato input,
+.section-contato textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.section-contato textarea {
+  resize: vertical;
+}
+
+.section-contato button {
+  background-color: #004080;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-contato button:hover {
+  background-color: #F58025;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  background: #000; 
+  padding: 30px 0;
+  text-align: center;
+  color: #fff;
+  margin-top: auto; 
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.direitos {
+  color: #fff;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-links li {
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.social-links li a {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.social-links li a:hover {
+  color: #F58025;
+}
+
+/* Mapa */
+#map {
+  height: 400px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .banner {
+    min-height: 180px;
+  }
+
+  .section-features {
+    min-height: 200px; /* Altura mínima ajustada para telas menores */
+  }
+
+  /* Ajustar a imagem do banner para usar o espaço total da seção em telas menores */
+  .banner-image {
+    background-size: cover; /* Define a imagem como background */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    background-position: center; /* Centraliza a imagem */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative; /* Permite que a imagem fique por cima do elemento anterior */
+    z-index: -1; /* Define a imagem como background */
+  }
+
+  .section-features {
+    background-size: cover; /* Define a imagem como background */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    background-position: center; /* Centraliza a imagem */
+    min-height: 300px; /* Define a altura mínima da seção como 100% da altura da viewport */
+    display: flex; /* Opcional, se você quiser conteúdo alinhado na seção */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+  }
+
+  .section-mapa-inscricao {
+    background-size: cover; /* Define a imagem como background */
+    background-repeat: no-repeat; /* Impede que a imagem se repita */
+    background-position: center; /* Centraliza a imagem */
+    min-height: 300px; /* Define a altura mínima da seção como 100% da altura da viewport */
+    display: flex; /* Opcional, se você quiser conteúdo alinhado na seção */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+  }
+
+  /* Ajustes para o footer */
+  footer .container {
+    flex-direction: column; /* Coluna para melhor visualização em telas pequenas */
+    align-items: center;
+  }
+
+  .social-links {
+    margin-top: 10px; /* Margem superior ajustada para melhor espaçamento */
+  }
+
+  .social-links li {
+    font-size: 1.2em; /* Tamanho da fonte reduzido */
+  }
+
+  /* Outros ajustes */
+  .section-contato form {
+    margin-left: 0; /* Remover margem lateral do formulário */
+  }
+
+  .section-mapa-inscricao {
+    padding: 50px 0; /* Padding reduzido para telas menores */
+  }
+}
+
+/* Hover Effects */
+.btn:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.feature-item:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.inscricao-formulario button:hover {
+  background-color: #F58025;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animações */
+.feature-item {
+  animation: fadeInUp 1s ease-in-out; 
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botões */
+.btn {
+  border: none;
+  padding: 15px 40px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary { 
+  background: linear-gradient(to right, #54C87D, #004080);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-light { 
+  background: linear-gradient(to right, #54C87D, #004080);
+  color: #fff;
+}
+
+.btn-outline-light:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-success { 
+  background: linear-gradient(to right, #54C87D, #004080);
+  color: #fff;
+}
+
+.btn-outline-light:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Outros */
+h2, h3, h4, h5, h6, .btn-outline-light, .btn-primary, .btn-success{
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+}
+
+.days-one-regular {
+  font-family: "Days One", sans-serif;
+  font-weight: 400;
+}
+
+.invalid-feedback {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+/* Seção de Recursos */
+.section-features {
+  background-color: #000; /* Cor de fundo da seção */
+  padding: 0; /* Remove o padding da seção */
+  background-image: url('img/features.png'); /* Define a imagem como background */
+  background-size: cover; /* Define a largura como 100% e a altura se ajusta automaticamente */
+  background-repeat: no-repeat; /* Impede que a imagem se repita */
+  background-position: center; /* Centraliza a imagem */
+  min-height: 70vh; /* Define a altura mínima da seção como 100% da altura da viewport */
+  display: flex; /* Opcional, se você quiser conteúdo alinhado na seção */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+}
+
+.feature-item {
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco translúcido */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.feature-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.feature-description {
+  font-size: 1em;
+}
+
+/* Responsividade para a seção de recursos */
+@media (max-width: 768px) {
+  .feature-item {
+    width: 90%; /* Ajuste a largura dos itens para telas menores */
+  }
+}
+
+/* Estilos para os modais */
+#modais .modal-dialog {
+  max-width: 400px;
+}
+
+#modais .modal-content {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#modais .modal-header {
+  background-color: #54C87D;
+  color: #fff;
+}
+
+#modais .modal-title {
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  color: #fff;
+}
+
+#modais .modal-body {
+  padding: 20px;
+}
+
+#modais .form-control {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#modais .btn-primary {
+  background: linear-gradient(to right, #54C87D, #004080);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#modais .btn-primary:hover {
+  background-color: #004080;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

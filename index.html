@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkNow - Estacionamento Inteligente</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Days+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Preload Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+                <a class="navbar-brand" href="#">
+                    <img src="img/logo.png" alt="Logo ParkNow" class="logo">
+                </a>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="container">
+            <img src="img/banner.jpeg" alt="Banner da ParkNow com imagem de um estacionamento moderno" class="banner-image" loading="lazy">
+            <div class="banner-text">
+                <p class="days-one-regular">Estacione com facilidade, segurança e praticidade. Encontre vagas disponíveis, reserve seu espaço e pague tudo online! </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="banner-buttons"> 
+        <div class="container">
+            <div class="row justify-content-center"> 
+                <div class="col-md-4 text-center">
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#registerForm"
+                        aria-label="Abrir modal de cadastro para criar uma conta no ParkNow" role="button">
+                        Cadastre-se
+                    </a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <a href="#" class="btn btn-outline-light" data-toggle="modal" data-target="#loginModal"
+                        aria-label="Abrir modal de login para acessar sua conta no ParkNow" role="button">
+                        Entrar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-features py-5"> 
+        <div class="container"> 
+        </div>
+    </section>
+
+    <section class="section-inscricao py-5">
+        <div class="container">
+            <h2 class="section-title text-center days-one-regular">ParkNow para donos de estacionamento</h2>
+            <p class="section-paragraph text-center days-one-regular">Gerencie seu tempo e suas vagas com mais inteligência. O ParkNow oferece soluções para motoristas e donos de estacionamentos.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-4 text-center">
+                    <a href="admin_home/admin-home.html" class="btn btn-success btn-lg">Gerencie seu estacionamento</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-mapa-inscricao py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <aside class="col-md-6 order-md-1 inscricao">
+                    <div class="inscricao-conteudo">
+                        <h2 class="section-title days-one-regular">Receba as últimas <br> atualizações e ofertas <br> especiais diretamente na <br> sua caixa de entrada.</h2>
+                        <p class="section-paragraph days-one-regular">Fique por dentro das novidades do ParkNow!</p>
+                    </div>
+                    <form class="inscricao-formulario">
+                        <div class="form-group">
+                            <input type="text" id="nomeInput" name="nome" placeholder="Nome *" required>
+                           
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="emailInput" name="email" placeholder="Email *" required>
+                            
+                        </div>
+                        <button type="submit" id="signUpButton" class="btn btn-primary">Inscrever-se</button>
+                    </form>
+                </aside>
+                <article class="col-md-6 order-md-2 mapa">
+                    <div id="map" style="height: 400px;"></div> 
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-contato py-5"> 
+        <div class="container">
+            <h2 class="section-title text-center days-one-regular">Fale Conosco</h2>
+            <p class="section-paragraph text-center days-one-regular">Tem alguma dúvida ou sugestão? Entre em contato conosco!</p>
+            <form id="contatoForm" action="#" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nomeInput" class="days-one-regular">Nome</label>
+                        <input type="text" class="form-control" id="nomeInput" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="emailInput" class="days-one-regular">Email</label>
+                        <input type="email" class="form-control" id="emailInput" placeholder="Seu email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="assuntoInput" class="days-one-regular">Assunto</label>
+                    <input type="text" class="form-control" id="assuntoInput" placeholder="Assunto da sua mensagem" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensagemInput" class="days-one-regular">Mensagem</label>
+                    <textarea class="form-control" id="mensagemInput" rows="5" placeholder="Sua mensagem" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="direitos days-one-regular">Direitos reservados a ParkNow © 2024</p>
+            <ul class="social-links">
+                <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Modais -->
+    <div id="modais"> 
+        <div id="loginModal" class="modal fade" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Acessar sua Conta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar modal de login">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="loginUserForm" action="index/login.php" method="POST" novalidate>
+                            <div class="form-group">
+                                <label for="loginUsername" class="days-one-regular">Email</label>
+                                <input type="email" class="form-control" id="loginUsername" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword" class="days-one-regular">Senha</label>
+                                <input type="password" class="form-control" id="loginPassword" name="senha" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="registerForm" class="modal fade" tabindex="-1" aria-labelledby="registerFormLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registerFormLabel">Cadastre-se</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar modal de cadastro">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="registerUserForm" action="index/cadastro.php" method="POST" novalidate>
+                            <div class="form-group">
+                                <label for="newUsername" class="days-one-regular">Nome</label>
+                                <input type="text" class="form-control" id="newUsername" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newEmail" class="days-one-regular">Email</label>
+                                <input type="email" class="form-control" id="newEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword" class="days-one-regular">Senha</label>
+                                <input type="password" class="form-control" id="newPassword" name="senha" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newTelefone" class="days-one-regular">Telefone</label>
+                                <input type="tel" class="form-control" id="newTelefone" name="telefone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="placaVeiculo" class="days-one-regular">Placa do Veículo</label>
+                                <input type="text" class="form-control" id="placaVeiculo" name="placa_veiculo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newCpf" class="days-one-regular">CPF</label>
+                                <input type="text" class="form-control" id="newCpf" name="cpf">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="index/index.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Inicializa o mapa Leaflet quando o documento estiver pronto
+        var map = L.map('map').setView([-22.7860667, -45.1840057], 16);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Verifica se o navegador suporta Geolocalização
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            alert("Geolocalização não suportada pelo seu navegador.");
+        }
+
+        // Função para exibir a localização do usuário
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            map.setView([latitude, longitude], 16); // Atualiza a visualização do mapa com a localização do usuário
+        }
+
+        // Função para lidar com erros na Geolocalização
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("Usuário recusou a solicitação de Geolocalização.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Localização do usuário indisponível.");
+                    break;
+                case error.TIMEOUT:
+                    alert("Tempo limite da solicitação de Geolocalização excedido.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("Erro desconhecido na Geolocalização.");
+                    break;
+            }
+        }
+
+        // Adiciona o evento de clique no mapa para abrir o modal
+        map.on('click', function() {
+            $('#mapModal').modal('show');
+        });
+
+        // Preenche o modal de cadastro com os dados do formulário
+        document.getElementById('reserveButton').addEventListener('click', function() {
+            var nome = document.getElementById('newUsername').value;
+            var email = document.getElementById('newEmail').value;
+
+            // Preenche os campos do modal com os valores obtidos
+            document.getElementById('registerForm').querySelector('input[name="nome"]').value = nome;
+            document.getElementById('registerForm').querySelector('input[name="email"]').value = email;
+
+            // Abre o modal de cadastro
+            $('#registerForm').modal('show');
+        });
+    </script>
+
+</body>
+</html>
